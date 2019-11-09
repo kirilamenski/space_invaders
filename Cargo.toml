@@ -1,0 +1,9 @@
+[package]
+name = "space_invaders"
+version = "0.1.0"
+authors = ["Kiryla Menski"]
+edition = "2018"
+
+[dependencies]
+rand = "*"
+termion = "*"
