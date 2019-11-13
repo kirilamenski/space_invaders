@@ -3,15 +3,19 @@ extern crate termion;
 mod game;
 mod objects;
 
-use termion::{clear, cursor};
-use termion::async_stdin;
-use termion::raw::{IntoRawMode, RawTerminal};
-use termion::input::TermRead;
-use termion::event::Key;
-use std::io::{Write, stdout, stdin, StdinLock, StdoutLock, Read};
-use std::time::{Instant, Duration};
+use termion::{
+    {clear, cursor},
+    async_stdin,
+    raw::{IntoRawMode, RawTerminal},
+    input::TermRead,
+    event::Key,
+};
+use std::{
+    io::{Write, stdout, stdin, StdinLock, StdoutLock, Read},
+    time::{Instant, Duration},
+    thread::sleep,
+};
 use self::game::*;
-use std::thread::sleep;
 
 const WELCOME_MSG: &str =
     "======================\n\r\

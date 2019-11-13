@@ -1,18 +1,25 @@
-use termion::{clear, cursor};
-use termion::raw::{IntoRawMode, RawTerminal};
-use termion::input::TermRead;
-use termion::event::Key;
-use termion::cursor::Goto;
+use termion::{
+    {clear, cursor},
+    raw::{IntoRawMode, RawTerminal},
+    input::TermRead,
+    event::Key,
+    cursor::Goto,
+};
 use rand::{thread_rng, Rng};
-use std::io::{Write, stdout, StdoutLock};
-use std::mem;
-use std::io::Error;
-use super::objects::game_object_trait::GameObjectTrait;
-use super::objects::bullet::{BulletDirection, Bullet};
-use super::objects::player::Player;
-use super::objects::enemy::Enemy;
-use super::objects::wall::Wall;
-use std::borrow::BorrowMut;
+
+use std::{
+    io::{Write, stdout, StdoutLock},
+    mem,
+    io::Error,
+    borrow::BorrowMut,
+};
+use super::objects::{
+    game_object_trait::GameObjectTrait,
+    bullet::{BulletDirection, Bullet},
+    player::Player,
+    enemy::Enemy,
+    wall::Wall,
+};
 
 const GAME_OVER: &str = "Game Over! Want to try again? Y/N";
 
@@ -139,7 +146,7 @@ impl Game {
         for i in 0..6 {
             for j in center_point..center_point * 4 {
                 if (j + i) % 3 == 0 {
-                    let mut enemy = Enemy::new( j, i, i, "֎ ".to_string());
+                    let mut enemy = Enemy::new(j, i, i, "֎ ".to_string());
                     self.enemies.push(enemy);
                 }
             }
